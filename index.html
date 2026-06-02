@@ -27,7 +27,7 @@
   header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s ease;border-bottom:1px solid transparent}
   header.scrolled{background:rgba(247,244,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   nav{display:flex;align-items:center;justify-content:space-between;height:84px}
-  .brand{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;letter-spacing:.01em;line-height:1}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:33px;font-weight:600;letter-spacing:.01em;line-height:1}
   .brand small{display:block;font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.34em;
     text-transform:uppercase;color:var(--soft);font-weight:400;margin-top:1px}
   .menu{display:flex;gap:32px;align-items:center}
@@ -120,6 +120,30 @@
   .offmarket .btn-dark{background:var(--brass);color:#fff}
   .offmarket .btn-dark:hover{background:var(--brass-deep)}
 
+  /* ZONE CARDS (aree / città) */
+  .zones{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+  .zone{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:var(--shadow);min-height:420px;display:flex;align-items:flex-end;transition:.5s;
+    background:linear-gradient(150deg,#e8dcc6,#cdbfa3)}
+  .zone.noimg-a{background:linear-gradient(150deg,#dfe4ea,#b9c2ce)}
+  .zone.noimg-b{background:linear-gradient(150deg,#e7ddc8,#cdbb9b)}
+  .zone.noimg-c{background:linear-gradient(150deg,#e9ddc9,#d0b99a)}
+  .zone.noimg-d{background:linear-gradient(150deg,#dde6e6,#b5c7c4)}
+  .zone:hover{transform:translateY(-4px)}
+  .zone-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.7s}
+  .zone:hover .zone-img{transform:scale(1.04)}
+  .zone::after{content:'';position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(20,18,14,.05) 0%,rgba(20,18,14,.40) 45%,rgba(20,18,14,.90) 100%)}
+  .zone-body{position:relative;z-index:2;padding:40px 42px;color:#fff;max-width:100%}
+  .zone-tag{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:#fff;background:rgba(169,133,79,.92);padding:7px 15px;border-radius:2px;margin-bottom:16px}
+  .zone-body h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);
+    font-weight:500;line-height:1.05;margin-bottom:12px;color:#fff}
+  .zone-body p{font-size:15.5px;line-height:1.65;color:#ece7df}
+  .zone-badges{display:flex;gap:9px;margin-top:20px;flex-wrap:wrap}
+  .zone-badges span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 13px;border-radius:20px}
+
   /* SERVICES */
   .grid-serv{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:40px 38px;transition:.4s;position:relative;overflow:hidden}
@@ -153,10 +177,13 @@
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   .field{margin-bottom:22px}.field.full{grid-column:1/-1}
   label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:9px}
-  input,textarea{width:100%;background:var(--ivory);border:1px solid var(--line);border-radius:2px;
+  input,textarea,select{width:100%;background:var(--ivory);border:1px solid var(--line);border-radius:2px;
     padding:13px 15px;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);transition:.3s}
-  input:focus,textarea:focus{outline:none;border-color:var(--brass)}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--brass)}
   textarea{resize:vertical;min-height:110px}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23876a3a' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 15px center;padding-right:38px}
   form .btn-dark{width:100%;justify-content:center}
 
   /* FOOTER */
@@ -190,7 +217,9 @@
     .lang-btn:not(.active) svg{opacity:.78}
     .about-grid,.contact-grid,.vis-grid{grid-template-columns:1fr;gap:48px}
     .vis-portrait{max-width:340px}
-    .grid-props,.grid-serv{grid-template-columns:1fr}
+    .grid-props,.grid-serv,.zones{grid-template-columns:1fr}
+    .zone{min-height:360px}
+    .zone-body{padding:32px 30px}
     .vrow{grid-template-columns:1fr 1fr}
     .vcell:nth-child(2){border-right:none}
     .vcell{border-bottom:1px solid rgba(255,255,255,.14)}
@@ -199,7 +228,8 @@
   }
   @media(max-width:520px){
     .vrow{grid-template-columns:1fr}.vcell{border-right:none}
-    .brand{font-size:23px}
+    .brand{font-size:25px}
+    .brand small{font-size:8.5px;letter-spacing:.26em}
     .lang-btn svg{width:34px;height:23px}
   }
 </style>
@@ -209,7 +239,7 @@
 <header id="hdr">
   <div class="wrap">
     <nav>
-      <a href="#top" class="brand">cinziagando<small data-i18n="brand.sub">International Real Estate</small></a>
+      <a href="#top" class="brand">Cinzia Gando<small data-i18n="brand.sub">International Real Estate</small></a>
       <div class="menu" id="menu">
         <a class="lnk" href="#about" data-i18n="nav.about">Chi Siamo</a>
         <a class="lnk" href="#immobili" data-i18n="nav.properties">Immobili</a>
@@ -303,95 +333,58 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow" data-i18n="props.eyebrow">Immobili</span>
-      <h2 data-i18n="props.title">Una selezione, non un catalogo.</h2>
-      <p class="lead" data-i18n="props.lead">Residenze di pregio e opportunità di investimento tra Milano e la Spagna, scelte con criterio. Per esigenze particolari, un portafoglio riservato di immobili off-market.</p>
+      <h2 data-i18n="props.title">Dove operiamo.</h2>
+      <p class="lead" data-i18n="props.lead">Immobili di prestigio tra Milano, le località più ambite d'Italia e la Spagna. Per esigenze particolari, un portafoglio riservato di immobili off-market.</p>
     </div>
-    <div class="grid-props">
+    <div class="zones">
 
-      <article class="prop reveal">
-        <div class="pimg">
-          <span class="badge" data-i18n="badge.both">Vendita / Affitto</span>
-          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe6d6"/><stop offset="1" stop-color="#dccfb7"/></linearGradient></defs>
-            <rect width="480" height="300" fill="url(#g1)"/>
-            <g fill="none" stroke="#876a3a" stroke-width="2.4" opacity=".7">
-              <path d="M150 260V120c0-14 36-14 36 0v140M300 260V90c0-16 40-16 40 0v170"/>
-              <rect x="200" y="150" width="80" height="110"/>
-              <path d="M160 140h16M160 165h16M160 190h16M310 110h16M310 135h16M310 160h16M215 165h20M245 165h20M215 195h20M245 195h20"/>
-            </g><line x1="40" y1="260" x2="440" y2="260" stroke="#876a3a" stroke-width="2.4" opacity=".7"/>
-          </svg>
+      <div class="zone reveal">
+        <img class="zone-img" alt="Milano" loading="lazy"
+          src="mn.jpg"
+          onerror="this.style.display='none';this.parentElement.classList.add('noimg-a')">
+        <div class="zone-body">
+          <span class="zone-tag" data-i18n="z1.tag">Milano</span>
+          <h3 data-i18n="z1.title">Milano, in ogni sua forma</h3>
+          <p data-i18n="z1.desc">Trattiamo a Milano immobili di ogni tipologia — dall'appartamento alla villa, dall'ufficio al negozio — sia in vendita che in locazione, oltre a opportunità selezionate per investitori.</p>
+          <div class="zone-badges"><span data-i18n="z.sale">Vendita</span><span data-i18n="z.rent">Locazione</span><span data-i18n="z.invest">Investimenti</span></div>
         </div>
-        <div class="pbody">
-          <span class="ploc">Milano · CityLife</span>
-          <h3 data-i18n="p1.title">Residenze CityLife</h3>
-          <div class="pspecs" data-i18n="p1.specs">Firmate Hadid &amp; Libeskind · varie metrature</div>
-          <p data-i18n="p1.desc">Nelle esclusive torri residenziali di CityLife, proponiamo soluzioni in vendita e in affitto.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="prop reveal">
-        <div class="pimg">
-          <span class="badge" data-i18n="badge.sale">Vendita</span>
-          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ece8dc"/><stop offset="1" stop-color="#d8d3bd"/></linearGradient></defs>
-            <rect width="480" height="300" fill="url(#g2)"/>
-            <g fill="none" stroke="#876a3a" stroke-width="2.4" opacity=".7">
-              <path d="M180 250V160l70-46 70 46v90z"/><path d="M180 160l70-46 70 46"/>
-              <rect x="232" y="200" width="36" height="50"/><rect x="200" y="180" width="22" height="22"/><rect x="278" y="180" width="22" height="22"/>
-              <circle cx="110" cy="200" r="30"/><path d="M110 230v20"/>
-            </g><line x1="40" y1="250" x2="440" y2="250" stroke="#876a3a" stroke-width="2.4" opacity=".7"/>
-          </svg>
+      <div class="zone reveal">
+        <img class="zone-img" alt="Portofino" loading="lazy"
+          src="portofino.png"
+          onerror="this.style.display='none';this.parentElement.classList.add('noimg-b')">
+        <div class="zone-body">
+          <span class="zone-tag" data-i18n="z2.tag">Località di pregio · Italia</span>
+          <h3 data-i18n="z2.title">Le località italiane più ambite</h3>
+          <p data-i18n="z2.desc">Selezioniamo immobili di prestigio nelle località più esclusive d'Italia: dal Lago di Como alla Liguria, da Forte dei Marmi e oltre. Residenze uniche, dove location e bellezza fanno la differenza.</p>
+          <div class="zone-badges"><span>Lago di Como</span><span>Liguria</span><span>Forte dei Marmi</span></div>
         </div>
-        <div class="pbody">
-          <span class="ploc">Milano · Centro</span>
-          <h3>Metropolitan Mini Villa</h3>
-          <div class="pspecs" data-i18n="p2.specs">7 camere · 520 m² · giardino 350 m²</div>
-          <p data-i18n="p2.desc">A pochi minuti da Piazza Duomo, soluzione su due livelli con giardino privato e finiture di altissimo pregio.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="prop reveal">
-        <div class="pimg">
-          <span class="badge" data-i18n="badge.sale">Vendita</span>
-          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0e9d9"/><stop offset="1" stop-color="#dbd0bb"/></linearGradient></defs>
-            <rect width="480" height="300" fill="url(#g3)"/>
-            <g fill="none" stroke="#876a3a" stroke-width="2.4" opacity=".7">
-              <circle cx="370" cy="80" r="26"/>
-              <rect x="150" y="120" width="120" height="140"/><path d="M150 120h120M150 155h120M150 190h120M150 225h120M190 120v140M230 120v140"/>
-              <path d="M40 250c30-14 60-14 90 0s60 14 90 0 60-14 90 0 60 14 90 0" stroke-linecap="round"/>
-            </g>
-          </svg>
+      <div class="zone reveal">
+        <img class="zone-img" alt="Marbella" loading="lazy"
+          src="marbella1.jpg"
+          onerror="this.style.display='none';this.parentElement.classList.add('noimg-c')">
+        <div class="zone-body">
+          <span class="zone-tag" data-i18n="z3.tag">Marbella · Spagna</span>
+          <h3 data-i18n="z3.title">Marbella</h3>
+          <p data-i18n="z3.desc">Sulla Costa del Sol, ville e residenze fronte mare e fronte golf, tra luce, eleganza e qualità della vita. In vendita e in locazione.</p>
+          <div class="zone-badges"><span data-i18n="z.sale">Vendita</span><span data-i18n="z.rent">Locazione</span></div>
         </div>
-        <div class="pbody">
-          <span class="ploc" data-i18n="p3.loc">Marbella · Spagna</span>
-          <h3 data-i18n="p3.title">Penthouse vista mare</h3>
-          <div class="pspecs" data-i18n="p3.specs">4 camere · 270 m² · terrazza 180 m²</div>
-          <p data-i18n="p3.desc">Ambienti luminosi e vista mozzafiato sul campo da golf e sul mare, con layout d'angolo unico.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="prop reveal">
-        <div class="pimg">
-          <span class="badge" data-i18n="badge.both">Vendita / Affitto</span>
-          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eee7d7"/><stop offset="1" stop-color="#d7ccb6"/></linearGradient></defs>
-            <rect width="480" height="300" fill="url(#g4)"/>
-            <g fill="none" stroke="#876a3a" stroke-width="2.4" opacity=".7" stroke-linecap="round">
-              <circle cx="100" cy="90" r="22"/>
-              <path d="M340 250V150M340 150c-26-6-46-26-50-50M340 150c26-6 46-26 50-50M340 158c-22 4-40 22-46 44M340 158c22 4 40 22 46 44"/>
-              <rect x="180" y="180" width="90" height="70"/><path d="M180 180l45-26 45 26"/>
-              <path d="M40 250c30-12 60-12 90 0s60 12 90 0 60-12 90 0 60 12 90 0"/>
-            </g>
-          </svg>
+      <div class="zone reveal">
+        <img class="zone-img" alt="Ibiza" loading="lazy"
+          src="ibiza1.jpg"
+          onerror="this.style.display='none';this.parentElement.classList.add('noimg-d')">
+        <div class="zone-body">
+          <span class="zone-tag" data-i18n="z4.tag">Ibiza · Spagna</span>
+          <h3 data-i18n="z4.title">Ibiza</h3>
+          <p data-i18n="z4.desc">Sull'isola più iconica del Mediterraneo, appartamenti e ville di lusso in contesti riservati. Soluzioni in vendita e in locazione.</p>
+          <div class="zone-badges"><span data-i18n="z.sale">Vendita</span><span data-i18n="z.rent">Locazione</span></div>
         </div>
-        <div class="pbody">
-          <span class="ploc" data-i18n="p4.loc">Ibiza · Spagna</span>
-          <h3>Garden Suite</h3>
-          <div class="pspecs" data-i18n="p4.specs">4 camere · 280 m² · 4 bagni</div>
-          <p data-i18n="p4.desc">Appartamento di lusso in complesso prestigioso, terrazze con giardino e 2 posti auto.</p>
-        </div>
-      </article>
+      </div>
 
     </div>
 
@@ -412,7 +405,7 @@
     </div>
     <div class="grid-serv">
       <div class="card reveal"><div class="ico">I.</div><h3 data-i18n="s1.title">Vendita &amp; Acquisto</h3><p data-i18n="s1.desc">Valutazione, valorizzazione e trattativa seguite di persona, per immobili residenziali, commerciali e industriali.</p></div>
-      <div class="card reveal"><div class="ico">II.</div><h3 data-i18n="s2.title">Locazione</h3><p data-i18n="s2.desc">Affitti residenziali e turistici, gestiti con attenzione ai dettagli e contratti chiari e sicuri.</p></div>
+      <div class="card reveal"><div class="ico">II.</div><h3 data-i18n="s2.title">Locazione</h3><p data-i18n="s2.desc">Affitti residenziali, commerciali e industriali, gestiti con attenzione ai dettagli e contratti chiari e sicuri.</p></div>
       <div class="card reveal"><div class="ico">III.</div><h3 data-i18n="s3.title">Investimenti</h3><p data-i18n="s3.desc">Opportunità selezionate con cura, calibrate sugli obiettivi di investitori privati e istituzionali.</p></div>
       <div class="card reveal"><div class="ico">IV.</div><h3 data-i18n="s4.title">Off-Market &amp; Riservatezza</h3><p data-i18n="s4.desc">Un portafoglio riservato di immobili fuori mercato, a tutela delle trattative e degli interessi di chi ci affida la propria fiducia.</p></div>
     </div>
@@ -474,6 +467,14 @@
           <div class="field"><label data-i18n="f.phone">Telefono</label><input id="tel" type="tel"></div>
           <div class="field"><label data-i18n="f.email">Email</label><input id="email" type="email" required></div>
         </div>
+        <div class="field full"><label data-i18n="f.who">Chi sei</label>
+          <select id="who">
+            <option value="" data-i18n="f.select">Seleziona…</option>
+            <option data-i18n="f.who1">Privato</option>
+            <option data-i18n="f.who2">Agenzia</option>
+            <option data-i18n="f.who3">Investitore</option>
+          </select>
+        </div>
         <div class="field full"><label data-i18n="f.msg">Messaggio</label><textarea id="msg" data-i18n-ph="f.ph" placeholder="Cerco un attico a Milano... / Vorrei vendere a Marbella..."></textarea></div>
         <button type="submit" class="btn btn-dark" data-i18n="f.send">Invia richiesta</button>
       </form>
@@ -485,7 +486,7 @@
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <a href="#top" class="brand">cinziagando<small data-i18n="brand.sub">International Real Estate</small></a>
+      <a href="#top" class="brand">Cinzia Gando<small data-i18n="brand.sub">International Real Estate</small></a>
       <div class="fnav">
         <a href="#about" data-i18n="nav.about">Chi Siamo</a>
         <a href="#immobili" data-i18n="nav.properties">Immobili</a>
@@ -522,17 +523,17 @@ const I18N = {
   "vis.p1":"Agente immobiliare abilitata con oltre 30 anni di esperienza, metto al centro del mio lavoro l'ascolto. Ogni cliente è unico: comprenderne davvero le esigenze è il primo passo per trovare non un immobile qualsiasi, ma quello giusto.",
   "vis.p2":"Lavoro al fianco di una rete internazionale di professionisti, banche e notai, per garantire a ogni operazione sicurezza, competenza e la massima riservatezza — dalla prima visita fino alla firma e oltre.",
   "vis.quote":"«Dietro ogni trattativa c'è una persona, e la sua fiducia è il bene più prezioso che mi venga affidato.»",
-  "props.eyebrow":"Immobili","props.title":"Una selezione, non un catalogo.",
-  "props.lead":"Residenze di pregio e opportunità di investimento tra Milano e la Spagna, scelte con criterio. Per esigenze particolari, un portafoglio riservato di immobili off-market.",
-  "badge.sale":"Vendita","badge.rent":"Affitto","badge.both":"Vendita / Affitto",
-  "p1.title":"Residenze CityLife","p1.specs":"Firmate Hadid &amp; Libeskind · varie metrature","p1.desc":"Nelle esclusive torri residenziali di CityLife, soluzioni in vendita e in affitto, abbinate al cliente giusto.",
-  "p2.specs":"7 camere · 520 m² · giardino 350 m²","p2.desc":"A pochi minuti da Piazza Duomo, soluzione su due livelli con giardino privato e finiture di altissimo pregio.",
-  "p3.loc":"Marbella · Spagna","p3.title":"Penthouse vista mare","p3.specs":"4 camere · 270 m² · terrazza 180 m²","p3.desc":"Ambienti luminosi e vista mozzafiato sul campo da golf e sul mare, con layout d'angolo unico.",
-  "p4.loc":"Ibiza · Spagna","p4.specs":"4 camere · 280 m² · 4 bagni","p4.desc":"Appartamento di lusso in complesso prestigioso, terrazze con giardino e 2 posti auto.",
+  "props.eyebrow":"Immobili","props.title":"Dove operiamo.",
+  "props.lead":"Immobili di prestigio tra Milano, le località più ambite d'Italia e la Spagna. Per esigenze particolari, un portafoglio riservato di immobili off-market.",
+  "z.sale":"Vendita","z.rent":"Locazione","z.invest":"Investimenti",
+  "z1.tag":"Milano","z1.title":"Milano, in ogni sua forma","z1.desc":"Trattiamo a Milano immobili di ogni tipologia — dall'appartamento alla villa, dall'ufficio al negozio — sia in vendita che in locazione, oltre a opportunità selezionate per investitori.",
+  "z2.tag":"Località di pregio · Italia","z2.title":"Le località italiane più ambite","z2.desc":"Selezioniamo immobili di prestigio nelle località più esclusive d'Italia: dal Lago di Como alla Liguria, da Forte dei Marmi e oltre. Residenze uniche, dove location e bellezza fanno la differenza.",
+  "z3.tag":"Marbella · Spagna","z3.title":"Marbella","z3.desc":"Sulla Costa del Sol, ville e residenze fronte mare e fronte golf, tra luce, eleganza e qualità della vita. In vendita e in locazione.",
+  "z4.tag":"Ibiza · Spagna","z4.title":"Ibiza","z4.desc":"Sull'isola più iconica del Mediterraneo, appartamenti e ville di lusso in contesti riservati. Soluzioni in vendita e in locazione.",
   "off.title":"Cerchi qualcosa di esclusivo? Ti apriamo le porte del nostro portafoglio off-market riservato.","off.btn":"Richiedi accesso off-market",
   "serv.eyebrow":"Servizi","serv.title":"Al tuo fianco, in ogni fase.","serv.lead":"Un'assistenza dedicata e continua, sostenuta da una rete selezionata di banche, notai ed esperti del settore.",
   "s1.title":"Vendita &amp; Acquisto","s1.desc":"Valutazione, valorizzazione e trattativa seguite di persona, per immobili residenziali, commerciali e industriali.",
-  "s2.title":"Locazione","s2.desc":"Affitti residenziali e turistici, gestiti con attenzione ai dettagli e contratti chiari e sicuri.",
+  "s2.title":"Locazione","s2.desc":"Affitti residenziali, commerciali e industriali, gestiti con attenzione ai dettagli e contratti chiari e sicuri.",
   "s3.title":"Investimenti","s3.desc":"Opportunità selezionate con cura, calibrate sugli obiettivi di investitori privati e istituzionali.",
   "s4.title":"Off-Market &amp; Riservatezza","s4.desc":"Un portafoglio riservato di immobili fuori mercato, a tutela delle trattative e degli interessi di chi ci affida la propria fiducia.",
   "val.eyebrow":"Il nostro metodo","val.title":"Ciò in cui crediamo.",
@@ -544,6 +545,7 @@ const I18N = {
   "con.italy":"Italia","con.spain":"Spagna · Marbella","con.spain2":"Spagna · Ibiza",
   "f.name":"Nome","f.surname":"Cognome","f.phone":"Telefono","f.email":"Email","f.msg":"Messaggio",
   "f.ph":"Cerco un attico a Milano... / Vorrei vendere a Marbella...","f.send":"Invia richiesta",
+  "f.who":"Chi sei","f.select":"Seleziona…","f.who1":"Privato","f.who2":"Agenzia","f.who3":"Investitore",
   "foot.rights":"Tutti i diritti riservati.","meta.title":"cinziagando — Real Estate Internazionale | Milano · Marbella · Ibiza"
  },
  en:{
@@ -562,17 +564,17 @@ const I18N = {
   "vis.p1":"A licensed real estate agent with over 30 years of experience, I place listening at the heart of my work. Every client is unique: truly understanding their needs is the first step to finding not just any property, but the right one.",
   "vis.p2":"I work alongside an international network of professionals, banks and notaries to give every transaction security, expertise and the utmost discretion — from the first viewing through signing and beyond.",
   "vis.quote":"\u201CBehind every transaction there is a person, and their trust is the most precious asset placed in my hands.\u201D",
-  "props.eyebrow":"Properties","props.title":"A selection, not a catalogue.",
-  "props.lead":"Prestige residences and investment opportunities between Milan and Spain, chosen with care. For particular needs, a confidential off-market portfolio.",
-  "badge.sale":"For Sale","badge.rent":"For Rent","badge.both":"Sale / Rent",
-  "p1.title":"CityLife Residences","p1.specs":"Designed by Hadid &amp; Libeskind · various sizes","p1.desc":"In the exclusive residential towers of CityLife, solutions for sale and rent, matched to the right client.",
-  "p2.specs":"7 beds · 520 m² · 350 m² garden","p2.desc":"Minutes from Piazza Duomo, a two-level home with private garden and the finest finishes.",
-  "p3.loc":"Marbella · Spain","p3.title":"Sea-view Penthouse","p3.specs":"4 beds · 270 m² · 180 m² terrace","p3.desc":"Bright spaces and breathtaking views over the golf course and sea, with a unique corner layout.",
-  "p4.loc":"Ibiza · Spain","p4.specs":"4 beds · 280 m² · 4 baths","p4.desc":"Luxury apartment in a prestigious complex, garden terraces and 2 parking spaces.",
+  "props.eyebrow":"Properties","props.title":"Where we operate.",
+  "props.lead":"Prestige properties across Milan, Italy's most sought-after locations and Spain. For particular needs, a confidential off-market portfolio.",
+  "z.sale":"Sale","z.rent":"Rental","z.invest":"Investment",
+  "z1.tag":"Milan","z1.title":"Milan, in all its forms","z1.desc":"In Milan we handle properties of every kind — from apartments to villas, offices to shops — both for sale and for rent, alongside selected opportunities for investors.",
+  "z2.tag":"Prestige locations · Italy","z2.title":"Italy's most coveted locations","z2.desc":"We select prestige properties in Italy's most exclusive locations: from Lake Como to Liguria, Forte dei Marmi and beyond. Unique residences, where location and beauty make the difference.",
+  "z3.tag":"Marbella · Spain","z3.title":"Marbella","z3.desc":"On the Costa del Sol, sea-front and golf-front villas and residences — light, elegance and quality of life. For sale and for rent.",
+  "z4.tag":"Ibiza · Spain","z4.title":"Ibiza","z4.desc":"On the Mediterranean's most iconic island, luxury apartments and villas in private settings. Solutions for sale and for rent.",
   "off.title":"Looking for something exclusive? We open the doors to our confidential off-market portfolio.","off.btn":"Request off-market access",
   "serv.eyebrow":"Services","serv.title":"By your side, at every stage.","serv.lead":"Dedicated, continuous support, backed by a select network of banks, notaries and industry experts.",
   "s1.title":"Sales &amp; Purchase","s1.desc":"Valuation, staging and negotiation handled in person, for residential, commercial and industrial properties.",
-  "s2.title":"Rentals","s2.desc":"Residential and tourist rentals, managed with attention to detail and clear, secure contracts.",
+  "s2.title":"Rentals","s2.desc":"Residential, commercial and industrial rentals, managed with attention to detail and clear, secure contracts.",
   "s3.title":"Investments","s3.desc":"Carefully selected opportunities, calibrated to the goals of private and institutional investors.",
   "s4.title":"Off-Market &amp; Discretion","s4.desc":"A confidential portfolio of off-market properties, protecting negotiations and the interests of those who place their trust in us.",
   "val.eyebrow":"Our approach","val.title":"What we believe in.",
@@ -584,6 +586,7 @@ const I18N = {
   "con.italy":"Italy","con.spain":"Spain · Marbella","con.spain2":"Spain · Ibiza",
   "f.name":"Name","f.surname":"Surname","f.phone":"Phone","f.email":"Email","f.msg":"Message",
   "f.ph":"I'm looking for a penthouse in Milan... / I'd like to sell in Marbella...","f.send":"Send request",
+  "f.who":"Who are you","f.select":"Select…","f.who1":"Private client","f.who2":"Agency","f.who3":"Investor",
   "foot.rights":"All rights reserved.","meta.title":"cinziagando — International Real Estate | Milan · Marbella · Ibiza"
  },
  es:{
@@ -602,17 +605,17 @@ const I18N = {
   "vis.p1":"Agente inmobiliaria colegiada con más de 30 años de experiencia, sitúo la escucha en el centro de mi trabajo. Cada cliente es único: comprender de verdad sus necesidades es el primer paso para encontrar no un inmueble cualquiera, sino el adecuado.",
   "vis.p2":"Trabajo junto a una red internacional de profesionales, bancos y notarios para dar a cada operación seguridad, competencia y la máxima discreción — desde la primera visita hasta la firma y más allá.",
   "vis.quote":"«Detrás de cada operación hay una persona, y su confianza es el bien más valioso que se me confía.»",
-  "props.eyebrow":"Inmuebles","props.title":"Una selección, no un catálogo.",
-  "props.lead":"Residencias de prestigio y oportunidades de inversión entre Milán y España, elegidas con criterio. Para necesidades particulares, una cartera reservada de inmuebles off-market.",
-  "badge.sale":"En Venta","badge.rent":"En Alquiler","badge.both":"Venta / Alquiler",
-  "p1.title":"Residencias CityLife","p1.specs":"Firmadas por Hadid y Libeskind · varios tamaños","p1.desc":"En las exclusivas torres residenciales de CityLife, soluciones en venta y en alquiler, para el cliente adecuado.",
-  "p2.specs":"7 hab. · 520 m² · jardín 350 m²","p2.desc":"A pocos minutos de la Piazza Duomo, vivienda en dos niveles con jardín privado y acabados de máxima calidad.",
-  "p3.loc":"Marbella · España","p3.title":"Ático con vistas al mar","p3.specs":"4 hab. · 270 m² · terraza 180 m²","p3.desc":"Espacios luminosos y vistas impresionantes al campo de golf y al mar, con un diseño de esquina único.",
-  "p4.loc":"Ibiza · España","p4.specs":"4 hab. · 280 m² · 4 baños","p4.desc":"Apartamento de lujo en complejo prestigioso, terrazas con jardín y 2 plazas de garaje.",
+  "props.eyebrow":"Inmuebles","props.title":"Dónde operamos.",
+  "props.lead":"Inmuebles de prestigio entre Milán, las localidades más codiciadas de Italia y España. Para necesidades particulares, una cartera reservada de inmuebles off-market.",
+  "z.sale":"Venta","z.rent":"Alquiler","z.invest":"Inversión",
+  "z1.tag":"Milán","z1.title":"Milán, en todas sus formas","z1.desc":"En Milán tratamos inmuebles de todo tipo — del apartamento a la villa, de la oficina al local — tanto en venta como en alquiler, además de oportunidades seleccionadas para inversores.",
+  "z2.tag":"Localidades de prestigio · Italia","z2.title":"Las localidades italianas más codiciadas","z2.desc":"Seleccionamos inmuebles de prestigio en las localidades más exclusivas de Italia: del Lago de Como a Liguria, Forte dei Marmi y más allá. Residencias únicas, donde la ubicación y la belleza marcan la diferencia.",
+  "z3.tag":"Marbella · España","z3.title":"Marbella","z3.desc":"En la Costa del Sol, villas y residencias frente al mar y al golf — luz, elegancia y calidad de vida. En venta y en alquiler.",
+  "z4.tag":"Ibiza · España","z4.title":"Ibiza","z4.desc":"En la isla más icónica del Mediterráneo, apartamentos y villas de lujo en entornos reservados. Soluciones en venta y en alquiler.",
   "off.title":"¿Buscas algo exclusivo? Te abrimos las puertas de nuestra cartera off-market reservada.","off.btn":"Solicitar acceso off-market",
   "serv.eyebrow":"Servicios","serv.title":"A tu lado, en cada fase.","serv.lead":"Una asistencia dedicada y continua, respaldada por una red selecta de bancos, notarios y expertos del sector.",
   "s1.title":"Venta y Compra","s1.desc":"Valoración, puesta en valor y negociación seguidas en persona, para inmuebles residenciales, comerciales e industriales.",
-  "s2.title":"Alquiler","s2.desc":"Alquileres residenciales y turísticos, gestionados con atención al detalle y contratos claros y seguros.",
+  "s2.title":"Alquiler","s2.desc":"Alquileres residenciales, comerciales e industriales, gestionados con atención al detalle y contratos claros y seguros.",
   "s3.title":"Inversiones","s3.desc":"Oportunidades seleccionadas con cuidado, ajustadas a los objetivos de inversores privados e institucionales.",
   "s4.title":"Off-Market y Discreción","s4.desc":"Una cartera reservada de inmuebles fuera de mercado, protegiendo las negociaciones y los intereses de quien nos confía su confianza.",
   "val.eyebrow":"Nuestro método","val.title":"En lo que creemos.",
@@ -624,6 +627,7 @@ const I18N = {
   "con.italy":"Italia","con.spain":"España · Marbella","con.spain2":"España · Ibiza",
   "f.name":"Nombre","f.surname":"Apellido","f.phone":"Teléfono","f.email":"Email","f.msg":"Mensaje",
   "f.ph":"Busco un ático en Milán... / Quiero vender en Marbella...","f.send":"Enviar solicitud",
+  "f.who":"Quién eres","f.select":"Selecciona…","f.who1":"Particular","f.who2":"Agencia","f.who3":"Inversor",
   "foot.rights":"Todos los derechos reservados.","meta.title":"cinziagando — Inmobiliaria Internacional | Milán · Marbella · Ibiza"
  }
 };
@@ -665,8 +669,10 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 // form -> email
 document.getElementById('contactForm').addEventListener('submit',function(ev){
   ev.preventDefault();const f=ev.target;
-  const subj=encodeURIComponent('cinziagando — '+f.nome.value+' '+f.cognome.value);
-  const body=encodeURIComponent('Nome: '+f.nome.value+' '+f.cognome.value+'\nTelefono: '+f.tel.value+'\nEmail: '+f.email.value+'\n\n'+f.msg.value);
+  const subj=encodeURIComponent('Cinzia Gando — '+f.nome.value+' '+f.cognome.value);
+  const who=document.getElementById('who');
+  const whoLabel=who.options[who.selectedIndex].text;
+  const body=encodeURIComponent('Nome: '+f.nome.value+' '+f.cognome.value+'\nTelefono: '+f.tel.value+'\nEmail: '+f.email.value+'\nChi sei / Who / Quién: '+(who.value?whoLabel:'-')+'\n\n'+f.msg.value);
   window.location.href='mailto:cinzia@cinziagando.com?subject='+subj+'&body='+body;
 });
 </script>
