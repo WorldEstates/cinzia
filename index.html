@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>cinziagando — International Real Estate | Milano · Marbella · Ibiza</title>
-<meta name="description" content="cinziagando International Real Estate: intermediazione immobiliare di prestigio a Milano, Marbella e Ibiza. Vendite, affitti e investimenti." />
+<title>Cinzia Gando — International Real Estate | Milano · Marbella · Ibiza</title>
+<meta name="description" content="Cinzia Gando International Real Estate: intermediazione immobiliare di prestigio a Milano, Marbella e Ibiza. Vendite, affitti e investimenti." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -83,7 +83,14 @@
   .about-text p{margin-bottom:22px;font-size:17px;color:#3b362e}
   .about-text p strong{font-weight:500;color:var(--ink)}
   .about-card{background:var(--ivory);border:1px solid var(--line);border-radius:4px;
-    padding:40px 44px;box-shadow:var(--shadow)}
+    padding:48px 46px;box-shadow:var(--shadow);position:relative}
+  .card-quote-mark{position:absolute;top:18px;left:34px;font-family:'Cormorant Garamond',serif;
+    font-size:90px;line-height:1;color:var(--brass);opacity:.28}
+  .card-lead{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,2.6vw,2.1rem);
+    font-weight:500;line-height:1.22;color:var(--ink);position:relative;margin:30px 0 18px}
+  .card-sub{font-size:16px;line-height:1.6;color:var(--soft);margin-bottom:26px}
+  .card-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--brass-deep)}
+  .card-sign::before{content:'— '}
   .stat{display:flex;align-items:baseline;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:none}
   .stat .num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:var(--brass-deep);line-height:1;min-width:110px}
@@ -95,8 +102,13 @@
   .vis-portrait{aspect-ratio:3/4;border-radius:4px;border:1px solid var(--line);box-shadow:var(--shadow);
     background:linear-gradient(160deg,#efe7d8,#e5d8c2);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
   .vis-portrait svg{width:78%;height:auto;opacity:.55}
-  .vis-portrait .pname{position:absolute;top:24px;left:24px;font-family:'Cormorant Garamond',serif;
-    font-size:22px;color:var(--brass-deep);font-style:italic}
+  .vis-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .vis-portrait::after{content:'';position:absolute;left:0;right:0;bottom:0;height:120px;z-index:1;
+    background:linear-gradient(180deg,transparent,rgba(20,18,14,.6))}
+  .vis-portrait .pname{position:absolute;top:auto;bottom:22px;left:24px;z-index:2;font-family:'Cormorant Garamond',serif;
+    font-size:24px;color:#fff;font-style:italic;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  .vis-portrait.noportrait .pname{top:24px;bottom:auto;color:var(--brass-deep);text-shadow:none}
+  .vis-portrait.noportrait::after{display:none}
   .vis-text .vis-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,3vw,2rem);
     line-height:1.35;color:var(--ink);margin-top:28px;padding-left:22px;border-left:2px solid var(--brass)}
   .vis-text p{font-size:17px;color:#3b362e;margin-top:18px}
@@ -276,7 +288,7 @@
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="wrap">
-    <span class="eyebrow hero-since reveal" data-i18n="hero.eyebrow">Real Estate Internazionale · Milano · Marbella · Ibiza</span>
+    <span class="eyebrow hero-since reveal" data-i18n="hero.eyebrow">Milano · Marbella · Ibiza</span>
     <h1 class="reveal" data-i18n="hero.title">Ogni cliente,<br>una storia <em>unica.</em></h1>
     <p class="hero-sub reveal" data-i18n="hero.sub">Una consulenza immobiliare di prestigio, costruita attorno alla singola persona. Vendita, locazione e investimenti tra Milano, Marbella e Ibiza, con la cura e la riservatezza che ogni patrimonio merita.</p>
     <div class="hero-actions reveal">
@@ -294,13 +306,14 @@
       <div class="about-text reveal">
         <span class="eyebrow" data-i18n="about.eyebrow">Chi Siamo</span>
         <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;line-height:1.06;margin:16px 0 28px" data-i18n="about.title">Una consulenza su misura, prima ancora che un'agenzia.</h2>
-        <p data-i18n="about.p1"><strong>cinziagando International Real Estate</strong> nasce da decenni di esperienza nella gestione di immobili di prestigio. Oggi affianchiamo privati, famiglie e gruppi a Milano, in Spagna tra Marbella e Ibiza, con partner selezionati in Italia e Spagna.</p>
+        <p data-i18n="about.p1"><strong>Cinzia Gando International Real Estate</strong> nasce da decenni di esperienza nella gestione di immobili di prestigio. Oggi affianchiamo privati, famiglie e gruppi a Milano, in Spagna tra Marbella e Ibiza, con partner selezionati in Italia e Spagna.</p>
         <p data-i18n="about.p2">Crediamo che dietro ogni immobile ci sia una persona, con esigenze, tempi e aspirazioni proprie. Per questo seguiamo ogni cliente personalmente, con trasparenza e discrezione, fino alla decisione giusta — la sua.</p>
       </div>
       <div class="about-card reveal">
-        <div class="stat"><span class="num">30+</span><span class="lbl" data-i18n="stat1">Anni di esperienza</span></div>
-        <div class="stat"><span class="num">3</span><span class="lbl" data-i18n="stat3">Mercati di riferimento</span></div>
-        <div class="stat"><span class="num">100%</span><span class="lbl" data-i18n="stat4">Consulenza dedicata</span></div>
+        <span class="card-quote-mark">“</span>
+        <p class="card-lead" data-i18n="about.cardLead">Una sola promessa: trattare il tuo immobile come se fosse il mio.</p>
+        <p class="card-sub" data-i18n="about.cardSub">Con discrezione, competenza e la cura che ogni patrimonio merita.</p>
+        <span class="card-sign">Cinzia Gando</span>
       </div>
     </div>
   </div>
@@ -311,13 +324,12 @@
   <div class="wrap">
     <div class="vis-grid">
       <div class="vis-portrait reveal">
+        <img class="vis-photo" src="cinzia.jpg" alt="Cinzia Gando"
+          onerror="this.style.display='none';this.parentElement.classList.add('noportrait')">
         <span class="pname">Cinzia Gando</span>
-        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#876a3a" stroke-width="2">
-          <circle cx="100" cy="78" r="42"/><path d="M30 240c0-50 32-86 70-86s70 36 70 86" stroke-linecap="round"/>
-        </svg>
       </div>
       <div class="vis-text reveal">
-        <span class="eyebrow" data-i18n="vis.eyebrow">La Visionaria</span>
+        <span class="eyebrow" data-i18n="vis.eyebrow">Founder</span>
         <h2 style="font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;line-height:1.06;margin:14px 0 6px">Cinzia Gando</h2>
         <p data-i18n="vis.p0">Il mio percorso è iniziato gestendo il patrimonio immobiliare della mia famiglia, per poi occuparmi di quello di importanti famiglie milanesi. Da lì l'attività si è ampliata fino a diventare partner e consulente di fiducia di grandi gruppi italiani e stranieri nella ricerca e selezione di immobili.</p>
         <p data-i18n="vis.p1">Agente immobiliare abilitata con oltre 30 anni di esperienza, metto al centro del mio lavoro l'ascolto. Ogni cliente è unico: comprenderne davvero le esigenze è il primo passo per trovare non un immobile qualsiasi, ma quello giusto.</p>
@@ -464,18 +476,18 @@
           <div class="field"><label data-i18n="f.surname">Cognome</label><input id="cognome" type="text" required></div>
         </div>
         <div class="frow">
-          <div class="field"><label data-i18n="f.phone">Telefono</label><input id="tel" type="tel"></div>
+          <div class="field"><label data-i18n="f.phone">Telefono</label><input id="tel" type="tel" required></div>
           <div class="field"><label data-i18n="f.email">Email</label><input id="email" type="email" required></div>
         </div>
         <div class="field full"><label data-i18n="f.who">Chi sei</label>
-          <select id="who">
+          <select id="who" required>
             <option value="" data-i18n="f.select">Seleziona…</option>
             <option data-i18n="f.who1">Privato</option>
             <option data-i18n="f.who2">Agenzia</option>
             <option data-i18n="f.who3">Investitore</option>
           </select>
         </div>
-        <div class="field full"><label data-i18n="f.msg">Messaggio</label><textarea id="msg" data-i18n-ph="f.ph" placeholder="Cerco un attico a Milano... / Vorrei vendere a Marbella..."></textarea></div>
+        <div class="field full"><label data-i18n="f.msg">Messaggio</label><textarea id="msg" data-i18n-ph="f.ph" placeholder="Cerco un attico a Milano... / Vorrei vendere a Marbella..." required></textarea></div>
         <button type="submit" class="btn btn-dark" data-i18n="f.send">Invia richiesta</button>
       </form>
     </div>
@@ -495,7 +507,7 @@
       </div>
     </div>
     <div class="fbottom">
-      <span>© <span id="yr"></span> cinziagando — <span data-i18n="foot.rights">Tutti i diritti riservati.</span></span>
+      <span>© <span id="yr"></span> Cinzia Gando — <span data-i18n="foot.rights">Tutti i diritti riservati.</span></span>
       <span>Milano · Marbella · Ibiza · Roma</span>
     </div>
   </div>
@@ -510,15 +522,15 @@ const I18N = {
  it:{
   "brand.sub":"International Real Estate",
   "nav.about":"Chi Siamo","nav.properties":"Immobili","nav.services":"Servizi","nav.values":"Valori","nav.contact":"Contatti",
-  "hero.eyebrow":"Real Estate Internazionale · Milano · Marbella · Ibiza",
+  "hero.eyebrow":"Milano · Marbella · Ibiza",
   "hero.title":"Ogni cliente,<br>una storia <em>unica.</em>",
   "hero.sub":"Una consulenza immobiliare di prestigio, costruita attorno alla singola persona. Vendita, locazione e investimenti tra Milano, Marbella e Ibiza, con la cura e la riservatezza che ogni patrimonio merita.",
   "hero.cta1":"Scopri gli immobili","hero.cta2":"Parliamone","hero.meta":"Vendite · Affitti · Investimenti",
   "about.eyebrow":"Chi Siamo","about.title":"Una consulenza su misura, prima ancora che un'agenzia.",
-  "about.p1":"<strong>cinziagando International Real Estate</strong> nasce da decenni di esperienza nella gestione di immobili di prestigio. Oggi affianchiamo privati, famiglie e gruppi a Milano, in Spagna tra Marbella e Ibiza, con partner selezionati in Italia e Spagna.",
+  "about.p1":"<strong>Cinzia Gando International Real Estate</strong> nasce da decenni di esperienza nella gestione di immobili di prestigio. Oggi affianchiamo privati, famiglie e gruppi a Milano, in Spagna tra Marbella e Ibiza, con partner selezionati in Italia e Spagna.",
   "about.p2":"Crediamo che dietro ogni immobile ci sia una persona, con esigenze, tempi e aspirazioni proprie. Per questo seguiamo ogni cliente personalmente, con trasparenza e discrezione, fino alla decisione giusta — la sua.",
-  "stat1":"Anni di esperienza","stat3":"Mercati di riferimento","stat4":"Consulenza dedicata",
-  "vis.eyebrow":"La Visionaria",
+  "about.cardLead":"Una sola promessa: trattare il tuo immobile come se fosse il mio.","about.cardSub":"Con discrezione, competenza e la cura che ogni patrimonio merita.",
+  "vis.eyebrow":"Founder",
   "vis.p0":"Il mio percorso è iniziato gestendo il patrimonio immobiliare della mia famiglia, per poi occuparmi di quello di importanti famiglie milanesi. Da lì l'attività si è ampliata fino a diventare partner e consulente di fiducia di grandi gruppi italiani e stranieri nella ricerca e selezione di immobili.",
   "vis.p1":"Agente immobiliare abilitata con oltre 30 anni di esperienza, metto al centro del mio lavoro l'ascolto. Ogni cliente è unico: comprenderne davvero le esigenze è il primo passo per trovare non un immobile qualsiasi, ma quello giusto.",
   "vis.p2":"Lavoro al fianco di una rete internazionale di professionisti, banche e notai, per garantire a ogni operazione sicurezza, competenza e la massima riservatezza — dalla prima visita fino alla firma e oltre.",
@@ -546,20 +558,20 @@ const I18N = {
   "f.name":"Nome","f.surname":"Cognome","f.phone":"Telefono","f.email":"Email","f.msg":"Messaggio",
   "f.ph":"Cerco un attico a Milano... / Vorrei vendere a Marbella...","f.send":"Invia richiesta",
   "f.who":"Chi sei","f.select":"Seleziona…","f.who1":"Privato","f.who2":"Agenzia","f.who3":"Investitore",
-  "foot.rights":"Tutti i diritti riservati.","meta.title":"cinziagando — Real Estate Internazionale | Milano · Marbella · Ibiza"
+  "foot.rights":"Tutti i diritti riservati.","meta.title":"Cinzia Gando — Real Estate Internazionale | Milano · Marbella · Ibiza"
  },
  en:{
   "brand.sub":"International Real Estate",
   "nav.about":"About","nav.properties":"Properties","nav.services":"Services","nav.values":"Values","nav.contact":"Contact",
-  "hero.eyebrow":"International Real Estate · Milan · Marbella · Ibiza",
+  "hero.eyebrow":"Milan · Marbella · Ibiza",
   "hero.title":"Every client,<br>a story <em>of their own.</em>",
   "hero.sub":"Prestige real estate advisory built around the individual. Sales, rentals and investments across Milan, Marbella and Ibiza, with the care and discretion every estate deserves.",
   "hero.cta1":"View properties","hero.cta2":"Let's talk","hero.meta":"Sales · Rentals · Investments",
   "about.eyebrow":"About","about.title":"Tailored advice, before it is an agency.",
-  "about.p1":"<strong>cinziagando International Real Estate</strong> is built on decades of experience managing prestige properties. Today we support individuals, families and groups in Milan, in Spain between Marbella and Ibiza, with selected partners across Italy and Spain.",
+  "about.p1":"<strong>Cinzia Gando International Real Estate</strong> is built on decades of experience managing prestige properties. Today we support individuals, families and groups in Milan, in Spain between Marbella and Ibiza, with selected partners across Italy and Spain.",
   "about.p2":"We believe there is a person behind every property — with their own needs, timing and aspirations. That is why we follow each client personally, with transparency and discretion, all the way to the right decision: theirs.",
-  "stat1":"Years of experience","stat3":"Core markets","stat4":"Dedicated advisory",
-  "vis.eyebrow":"The Visionary",
+  "about.cardLead":"One promise: to treat your property as if it were my own.","about.cardSub":"With discretion, expertise and the care every estate deserves.",
+  "vis.eyebrow":"Founder",
   "vis.p0":"My journey began managing my own family's real estate assets, then those of prominent Milanese families. From there the business grew to become a trusted partner and adviser to major Italian and international groups in sourcing and selecting properties.",
   "vis.p1":"A licensed real estate agent with over 30 years of experience, I place listening at the heart of my work. Every client is unique: truly understanding their needs is the first step to finding not just any property, but the right one.",
   "vis.p2":"I work alongside an international network of professionals, banks and notaries to give every transaction security, expertise and the utmost discretion — from the first viewing through signing and beyond.",
@@ -587,20 +599,20 @@ const I18N = {
   "f.name":"Name","f.surname":"Surname","f.phone":"Phone","f.email":"Email","f.msg":"Message",
   "f.ph":"I'm looking for a penthouse in Milan... / I'd like to sell in Marbella...","f.send":"Send request",
   "f.who":"Who are you","f.select":"Select…","f.who1":"Private client","f.who2":"Agency","f.who3":"Investor",
-  "foot.rights":"All rights reserved.","meta.title":"cinziagando — International Real Estate | Milan · Marbella · Ibiza"
+  "foot.rights":"All rights reserved.","meta.title":"Cinzia Gando — International Real Estate | Milan · Marbella · Ibiza"
  },
  es:{
   "brand.sub":"International Real Estate",
   "nav.about":"Quiénes Somos","nav.properties":"Inmuebles","nav.services":"Servicios","nav.values":"Valores","nav.contact":"Contacto",
-  "hero.eyebrow":"Inmobiliaria Internacional · Milán · Marbella · Ibiza",
+  "hero.eyebrow":"Milán · Marbella · Ibiza",
   "hero.title":"Cada cliente,<br>una historia <em>única.</em>",
   "hero.sub":"Un asesoramiento inmobiliario de prestigio, construido en torno a cada persona. Venta, alquiler e inversión entre Milán, Marbella e Ibiza, con el cuidado y la discreción que todo patrimonio merece.",
   "hero.cta1":"Ver inmuebles","hero.cta2":"Hablemos","hero.meta":"Ventas · Alquileres · Inversiones",
   "about.eyebrow":"Quiénes Somos","about.title":"Un asesoramiento a medida, antes que una inmobiliaria.",
-  "about.p1":"<strong>cinziagando International Real Estate</strong> nace de décadas de experiencia en la gestión de inmuebles de prestigio. Hoy acompañamos a particulares, familias y grupos en Milán, en España entre Marbella e Ibiza, con socios seleccionados en Italia y España.",
+  "about.p1":"<strong>Cinzia Gando International Real Estate</strong> nace de décadas de experiencia en la gestión de inmuebles de prestigio. Hoy acompañamos a particulares, familias y grupos en Milán, en España entre Marbella e Ibiza, con socios seleccionados en Italia y España.",
   "about.p2":"Creemos que detrás de cada inmueble hay una persona, con sus propias necesidades, tiempos y aspiraciones. Por eso seguimos a cada cliente personalmente, con transparencia y discreción, hasta la decisión correcta: la suya.",
-  "stat1":"Años de experiencia","stat3":"Mercados de referencia","stat4":"Asesoramiento dedicado",
-  "vis.eyebrow":"La Visionaria",
+  "about.cardLead":"Una sola promesa: tratar tu inmueble como si fuera el mío.","about.cardSub":"Con discreción, competencia y el cuidado que todo patrimonio merece.",
+  "vis.eyebrow":"Founder",
   "vis.p0":"Mi trayectoria comenzó gestionando el patrimonio inmobiliario de mi propia familia y, más tarde, el de importantes familias milanesas. A partir de ahí la actividad se amplió hasta convertirme en socia y asesora de confianza de grandes grupos italianos y extranjeros en la búsqueda y selección de inmuebles.",
   "vis.p1":"Agente inmobiliaria colegiada con más de 30 años de experiencia, sitúo la escucha en el centro de mi trabajo. Cada cliente es único: comprender de verdad sus necesidades es el primer paso para encontrar no un inmueble cualquiera, sino el adecuado.",
   "vis.p2":"Trabajo junto a una red internacional de profesionales, bancos y notarios para dar a cada operación seguridad, competencia y la máxima discreción — desde la primera visita hasta la firma y más allá.",
@@ -628,7 +640,7 @@ const I18N = {
   "f.name":"Nombre","f.surname":"Apellido","f.phone":"Teléfono","f.email":"Email","f.msg":"Mensaje",
   "f.ph":"Busco un ático en Milán... / Quiero vender en Marbella...","f.send":"Enviar solicitud",
   "f.who":"Quién eres","f.select":"Selecciona…","f.who1":"Particular","f.who2":"Agencia","f.who3":"Inversor",
-  "foot.rights":"Todos los derechos reservados.","meta.title":"cinziagando — Inmobiliaria Internacional | Milán · Marbella · Ibiza"
+  "foot.rights":"Todos los derechos reservados.","meta.title":"Cinzia Gando — Inmobiliaria Internacional | Milán · Marbella · Ibiza"
  }
 };
 
